@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import React from 'react';
 import { View, Text, Image, StyleSheet, Platform, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -21,17 +22,26 @@ const SettingProfile = () => {
                 </View>
 
                 <View style={styles.settingsSection}>
-                    <TouchableOpacity style={styles.settingItem}>
+                    <TouchableOpacity
+                     style={styles.settingItem}
+                     onPress={()=> router.push("/profile/edit")}
+                     >
                         <Icon name="person" size={24} color="#000" style={styles.settingIcon} />
                         <Text style={styles.settingText}>Edit Profile</Text>
                         <Icon name="chevron-right" size={24} color="#666" style={styles.chevronIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.settingItem}>
+                    <TouchableOpacity 
+                    style={styles.settingItem}
+                    onPress={()=> router.push("/profile/privacy")}
+                    >
                         <Icon name="security" size={24} color="#000" style={styles.settingIcon} />
                         <Text style={styles.settingText}>Privacy & Security</Text>
                         <Icon name="chevron-right" size={24} color="#666" style={styles.chevronIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.settingItem}>
+                    <TouchableOpacity
+                     style={styles.settingItem}
+                     onPress={()=> router.push("/profile/about")}
+                     >
                         <Icon name="face-5" size={24} color="#000" style={styles.settingIcon} />
                         <Text style={styles.settingText}>About Me</Text>
                         <Icon name="chevron-right" size={24} color="#666" style={styles.chevronIcon} />
@@ -57,7 +67,7 @@ const SettingProfile = () => {
                 </View>
 
                 <View style={styles.activitySection}>
-                    <Text style={styles.statsSectionTitle}>Recent Activity</Text>
+                    <Text style={styles.statsSectionTitle}>Activity</Text>
                     <View style={styles.activityItem}>
                         <Icon name="favorite" size={20} color="#000" style={styles.activityIcon} />
                         <Text style={styles.activityText}>Liked a post by Sarah</Text>
@@ -75,7 +85,10 @@ const SettingProfile = () => {
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.logoutButton}>
+                <TouchableOpacity
+                onPress={()=>{router.replace("/")}}
+                 style={styles.logoutButton}
+                 >
                     <Icon name="logout" size={24} color="#FFFFFF" />
                     <Text style={styles.logoutButtonText}>Logout</Text>
                 </TouchableOpacity>

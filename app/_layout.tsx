@@ -17,6 +17,33 @@ export default function RootLayout() {
               }}
             />
             <Stack.Screen
+              name="profile/edit"
+              options={{
+                headerShown: true,
+                headerTintColor: "black",
+                headerBackTitle: "Back",
+                headerTitle: "Edit profile"
+              }}
+            />
+            <Stack.Screen
+              name="profile/privacy"
+              options={{
+                headerShown: true,
+                headerTintColor: "black",
+                headerBackTitle: "Back",
+                headerTitle: "Privacy"
+              }}
+            />
+            <Stack.Screen
+              name="profile/about"
+              options={{
+                headerShown: true,
+                headerTintColor: "black",
+                headerBackTitle: "Back",
+                headerTitle: "About author"
+              }}
+            />
+            <Stack.Screen
               name="(search)/search"
               options={{
                 headerShown: true,
@@ -41,6 +68,15 @@ export default function RootLayout() {
               }}
             />
             <Stack.Screen
+              name="index"
+              options={{
+                headerShown: false,
+                headerTintColor: "black",
+                headerBackTitle: "Back",
+                headerTitle: "",
+              }}
+            />
+            <Stack.Screen
               name="detail/[id]"
               options={{
                 headerShown: true,
@@ -48,7 +84,7 @@ export default function RootLayout() {
                 headerBackTitle: "Back",
                 headerTitle: "",
               }}
-            />
+            />            
           </Stack>
         </SafeAreaProvider>
       </PaperProvider>

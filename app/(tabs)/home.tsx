@@ -1,16 +1,22 @@
 import PaperDrawer from "@/component/drawer/drawer";
-import MyDrawer from "@/component/drawer/drawer";
 import HomeCard from "@/component/home/card";
 import HomeCarousel from "@/component/home/carousel";
 import Header from "@/component/home/header";
 import HomePost from "@/component/home/post";
-import { useState } from "react";
+import { useNavigation } from "expo-router";
+import { useLayoutEffect, useState } from "react";
 import { ScrollView, View } from "react-native";
-import { Drawer } from "react-native-paper";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomePage = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const navigation = useNavigation();
+
+      useLayoutEffect(() => {
+        navigation.setOptions({
+          gestureEnabled: false, 
+        });
+      }, [navigation]);
 
   const toggleDrawer = () => {
     setIsDrawerOpen((prev) => !prev);

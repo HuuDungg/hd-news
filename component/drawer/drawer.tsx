@@ -195,7 +195,9 @@ const PaperDrawer: React.FC<PaperDrawerProps> = ({ isOpen, toggleDrawer }) => {
             }}
             icon="logout" 
             mode="contained" 
-            onPress={() => console.log('Pressed')}
+            onPress={() => {
+              router.replace("/");
+            }}
           >
             Logout
           </Button>
