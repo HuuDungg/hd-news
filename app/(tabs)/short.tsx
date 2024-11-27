@@ -11,15 +11,22 @@ const ShortPage = ()=>{
         }}
         >
             <ScrollView>
-                <ShortCard />
-                <ShortCard />
-                <ShortCard />
-                <ShortCard />
-                <ShortCard />
-                <ShortCard />
-                <ShortCard />
-                <ShortCard />
-                <ShortCard />
+                <View
+                style={{
+                    gap: 10,
+                    marginHorizontal: 15
+                }}
+                >
+                    <ShortCard />
+                    <ShortCard />
+                    <ShortCard />
+                    <ShortCard />
+                    <ShortCard />
+                    <ShortCard />
+                    <ShortCard />
+                    <ShortCard />
+                    <ShortCard />
+                </View>
             </ScrollView>
         </View>
         </>

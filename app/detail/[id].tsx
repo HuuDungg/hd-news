@@ -1,8 +1,11 @@
-import { useNavigation } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import { useLayoutEffect, useState } from "react";
-import { TouchableOpacity, View, Share, Linking, StyleSheet } from "react-native";
+import { TouchableOpacity, View, Share, Linking, StyleSheet, Image, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/Feather';
 import HeartIcon from 'react-native-vector-icons/AntDesign';
+import DetailTabar from "@/component/detail/tabar";
+import ArticlePage from "@/component/detail/article";
+import RelatedArticle from "@/component/detail/related";
 
 const Detailpage = () => {
     const navigation = useNavigation();
@@ -40,6 +43,10 @@ const Detailpage = () => {
         );
     };
 
+    const navigateToComments = () => {
+        router.push(`/comment/${48732}`)
+    }
+
     // Function to handle like/unlike
     const handleLike = () => {
         setIsLiked(!isLiked);
@@ -56,6 +63,15 @@ const Detailpage = () => {
                             name={isLiked ? 'heart' : 'hearto'} 
                             size={24} 
                             color={isLiked ? 'red' : 'black'}
+                        />
+                    </TouchableOpacity>
+
+                    {/* Comments Button */}
+                    <TouchableOpacity onPress={navigateToComments}>
+                        <Icon 
+                            name="message-circle" 
+                            size={24} 
+                            color="black" 
                         />
                     </TouchableOpacity>
 
@@ -83,16 +99,72 @@ const Detailpage = () => {
 
     return (
         <View style={styles.container}>
-            {/* Your page content */}
+            <ScrollView style={styles.scrollContainer} removeClippedSubviews={true}>
+                {/* Image Container with Floating Card Style */}
+                <View style={styles.outerImageContainer}>
+                    <View style={styles.imageContainer}>
+                        <Image
+                            style={styles.image}
+                            source={{
+                                uri: 'https://platform.polygon.com/wp-content/uploads/sites/2/2024/10/VenomGrin2.jpg?quality=90&strip=all&crop=18.725%2C0%2C62.55%2C100&w=2048',
+                            }} 
+                            resizeMode="cover"
+                        />
+                    </View>
+                </View>
+                
+                <View>
+                    <DetailTabar />
+                </View>
+
+                <View>
+                    <ArticlePage />
+                </View>
+
+                <View>
+                    <RelatedArticle />
+                </View>
+
+            </ScrollView>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: { 
-        flex: 1, 
-        justifyContent: 'center', 
         alignItems: 'center' 
+    },
+    scrollContainer: {
+        height: 'auto'
+    },
+    outerImageContainer: {
+        paddingHorizontal: 15,
+        marginVertical: 10,
+    },
+    imageContainer: {
+        width: '100%',
+        height: 250, 
+        backgroundColor: '#ffffff',
+        borderRadius: 12,
+        
+        // Shadow styles for iOS
+        shadowColor: '#000',
+        shadowOffset: { 
+            width: 0, 
+            height: 2 
+        },
+        shadowOpacity: 0.15,
+        shadowRadius: 4,
+        
+        // Elevation for Android
+        elevation: 5,
+        
+        // Ensure image is clipped to border radius
+        overflow: 'hidden'
+    },
+    image: {
+        width: '100%',
+        height: '100%',
     },
     headerIcons: { 
         flexDirection: 'row', 

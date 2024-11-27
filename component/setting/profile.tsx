@@ -15,8 +15,8 @@ const SettingProfile = () => {
                         />
                     </View>
                     <View style={styles.profileInfoContainer}>
-                        <Text style={styles.profileName}>John Doe</Text>
-                        <Text style={styles.profileEmail}>johndoe@example.com</Text>
+                        <Text style={styles.profileName}>Dan Robert</Text>
+                        <Text style={styles.profileEmail}>huudung2004kt@gmail.com</Text>
                     </View>
                 </View>
 
@@ -32,8 +32,8 @@ const SettingProfile = () => {
                         <Icon name="chevron-right" size={24} color="#666" style={styles.chevronIcon} />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.settingItem}>
-                        <Icon name="notifications" size={24} color="#000" style={styles.settingIcon} />
-                        <Text style={styles.settingText}>Notifications</Text>
+                        <Icon name="face-5" size={24} color="#000" style={styles.settingIcon} />
+                        <Text style={styles.settingText}>About Me</Text>
                         <Icon name="chevron-right" size={24} color="#666" style={styles.chevronIcon} />
                     </TouchableOpacity>
                 </View>

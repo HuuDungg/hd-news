@@ -2,8 +2,10 @@ import { router } from 'expo-router';
 import React from 'react';
 import { Text, View, TouchableOpacity, Platform } from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
-
-const Header = () => {
+interface IProps{
+    toggleDrawer: () => void
+}
+const Header = (props: IProps) => {
     return (
         <>
         <View 
@@ -15,7 +17,8 @@ const Header = () => {
                 top: 0,
                 left: 0,
                 right: 0,
-                zIndex: 1000
+                zIndex: 100,
+                borderRadius: 30
             }}
         >
             <View 
@@ -43,6 +46,7 @@ const Header = () => {
                         width: "15%",
                         alignItems: 'flex-start',
                     }}
+                    onPress={props.toggleDrawer}
                 >
                     <Icon 
                         name="menuunfold" 

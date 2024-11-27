@@ -1,21 +1,36 @@
+import PaperDrawer from "@/component/drawer/drawer";
+import MyDrawer from "@/component/drawer/drawer";
 import HomeCard from "@/component/home/card";
 import HomeCarousel from "@/component/home/carousel";
 import Header from "@/component/home/header";
 import HomePost from "@/component/home/post";
+import { useState } from "react";
 import { ScrollView, View } from "react-native";
+import { Drawer } from "react-native-paper";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomePage = () => {
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen((prev) => !prev);
+  };
   return (
     <>
       <SafeAreaView>
-        <View>
-          <Header />
+        < PaperDrawer isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
+        <View
+          style={{
+            borderRadius: 30
+          }}
+        >
+          <Header toggleDrawer={toggleDrawer} />
         </View>
-                <View
-        style={{
-            height: 100
-        }}
+        <View
+          style={{
+              height: 100,
+              borderRadius: 30
+          }}
         ></View>
         <View>
           <ScrollView

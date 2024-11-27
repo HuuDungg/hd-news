@@ -1,7 +1,10 @@
+import PaperDrawer from "@/component/drawer/drawer";
 import { Tabs } from "expo-router";
+import { useState } from "react";
 import Icon from 'react-native-vector-icons/Feather';
 
 const TabLayout = () => {
+
   return (
     <>
       <Tabs>
