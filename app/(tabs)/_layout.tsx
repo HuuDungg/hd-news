@@ -1,45 +1,52 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Tabs } from "expo-router";
+import Icon from 'react-native-vector-icons/Feather';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const TabLayout = () => {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
+    <>
+      <Tabs>
+        <Tabs.Screen
+          name="home"
+          options={{
+            headerShown: false,
+            tabBarIcon: () => <Icon name="home" size={30} color="#000" />,
+            tabBarActiveTintColor: "red",  // Màu của tên tab khi active
+            tabBarInactiveTintColor: "gray",  // Màu của tên tab khi inactive
+          }}
+        />
+
+        <Tabs.Screen
+          name="short"
+          options={{
+            headerShown: false,
+            tabBarIcon: () => <Icon name="slack" size={30} color="#000" />,
+            tabBarActiveTintColor: "red",
+            tabBarInactiveTintColor: "gray",
+          }}
+        />
+
+        <Tabs.Screen
+          name="notice"
+          options={{
+            headerShown: false,
+            tabBarIcon: () => <Icon name="feather" size={30} color="#000" />,
+            tabBarActiveTintColor: "red",
+            tabBarInactiveTintColor: "gray",
+          }}
+        />
+
+        <Tabs.Screen
+          name="setting"
+          options={{
+            headerShown: false,
+            tabBarIcon: () => <Icon name="settings" size={30} color="#000" />,
+            tabBarActiveTintColor: "red",
+            tabBarInactiveTintColor: "gray",
+          }}
+        />
+      </Tabs>
+    </>
   );
-}
+};
+
+export default TabLayout;
