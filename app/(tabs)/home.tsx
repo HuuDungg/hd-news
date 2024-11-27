@@ -10,7 +10,7 @@ import { Drawer } from "react-native-paper";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomePage = () => {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
     setIsDrawerOpen((prev) => !prev);
